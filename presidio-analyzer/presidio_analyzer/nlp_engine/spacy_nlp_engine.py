@@ -1,4 +1,5 @@
 import spacy
+import os
 
 from presidio_analyzer import PresidioLogger
 from presidio_analyzer.nlp_engine import NlpArtifacts, NlpEngine
@@ -19,6 +20,9 @@ class SpacyNlpEngine(NlpEngine):
     def __init__(self, models=None):
         if not models:
             models = {"en": "en_core_web_lg"}
+        if "CUSTOM_MODELS" in os.environ:
+            models = {"en": os.environ["CUSTOM_MODELS"]}
+
         logger.debug(f"Loading SpaCy models: {models.values()}")
 
         self.nlp = {

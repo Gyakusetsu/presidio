@@ -9,8 +9,8 @@ with open(os.path.join(parent_directory, 'VERSION')) as version_file:
     __version__ = version_file.read().strip()
 
 setuptools.setup(
-    name="presidio_analyzer",
-    version=__version__,
+    name="presidio_analyzer_fixed",
+    version="0.5.dev0",
     description="Presidio analyzer package",
     # long_description=long_description,
     # long_description_content_type="text/markdown",
@@ -28,7 +28,7 @@ setuptools.setup(
         'cython==0.29.10',
         'spacy==2.2.3',
         'regex==2019.6.8',
-        'grpcio==1.21.1',
+        'grpcio==1.31.0',
         'protobuf==3.8.0',
         'tldextract==2.2.1',
         'knack==0.6.2'],
